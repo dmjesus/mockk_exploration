@@ -8,7 +8,7 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.*
 
-class StaticMock: FunSpec({
+class StaticMockTest: FunSpec({
     context("Static Mocking") {
         test("Should mock static function") {
             mockkStatic(Chevette::fly)

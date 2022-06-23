@@ -12,7 +12,7 @@ import io.mockk.mockkObject
 import io.mockk.unmockkObject
 import io.mockk.verify
 
-class ObjectMock: FunSpec({
+class ObjectMockTest: FunSpec({
     context("Static Mocking") {
         test("Should mock static object") {
             mockkObject(Chevette)

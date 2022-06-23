@@ -12,7 +12,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 
-class RelaxedMock: FunSpec({
+class RelaxedMockTest: FunSpec({
     context("Relaxed mocking") {
         test("Should mock relaxed") {
             val service = mockk<CarService>(relaxed = true)
