@@ -6,7 +6,10 @@ import com.learning.mockk.domain.entities.Outcome.OK
 import com.learning.mockk.domain.entities.fly
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import io.mockk.*
+import io.mockk.every
+import io.mockk.mockkStatic
+import io.mockk.unmockkStatic
+import io.mockk.verify
 
 class StaticMockTest: FunSpec({
     context("Static Mocking") {

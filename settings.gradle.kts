@@ -1,1 +1,1 @@
-rootProject.name = "copper"
+rootProject.name = "mockk_exploration"

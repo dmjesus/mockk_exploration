@@ -1,14 +1,14 @@
 package com.learning.mockk.services
 
-import io.kotest.core.spec.style.FunSpec
-import io.mockk.every
-import io.mockk.mockk
-import com.learning.mockk.domain.entities.Outcome.OK
 import com.learning.mockk.domain.entities.Direction.NORTH
 import com.learning.mockk.domain.entities.Gear.FIRST
+import com.learning.mockk.domain.entities.Outcome.OK
 import com.learning.mockk.domain.services.CarService
+import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.clearAllMocks
+import io.mockk.every
+import io.mockk.mockk
 import io.mockk.verify
 
 internal class CarServiceTest: FunSpec({
