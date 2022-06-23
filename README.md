@@ -1,2 +1,2 @@
-# mockk_exploration
-Testing mockk functionaties
+# MockK Library Exploration
+Testing mockk functionalities
