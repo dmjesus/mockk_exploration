@@ -5,6 +5,7 @@ import com.learning.mockk.domain.entities.Direction
 import com.learning.mockk.domain.entities.Gear
 import com.learning.mockk.domain.entities.Outcome
 import com.learning.mockk.domain.entities.Outcome.OK
+import com.learning.mockk.domain.entities.Outcome.BLANK
 
 class CarService(val car: Car) {
 
@@ -20,5 +21,10 @@ class CarService(val car: Car) {
 
     fun unitFunctionExample() {
         // do nothing
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    fun recordTelemetry(speed: Int, direction: Direction): Outcome {
+        return BLANK
     }
 }

@@ -6,33 +6,33 @@ import com.learning.mockk.domain.entities.Outcome.OK
 import com.learning.mockk.domain.services.CarService
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import io.mockk.clearAllMocks
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
+import io.mockk.*
 
 internal class CarServiceTest: FunSpec({
     context("Driving tests") {
-        val service = mockk<CarService>()
+
         test("Should go north") {
+            val service = mockk<CarService>()
             every { service.drive(NORTH) } returns OK
 
             val result = service.drive(NORTH)
             result shouldBe OK
 
             verify { service.drive(NORTH) }
-            clearAllMocks()
+            confirmVerified(service)
+            unmockkAll()
         }
 
         test("Should change gear") {
+            val service = mockk<CarService>()
             every { service.changeGear(FIRST) } returns OK
 
             val result = service.changeGear(FIRST)
-            service.drive(NORTH)
             result shouldBe OK
 
             verify { service.changeGear(FIRST) }
-            clearAllMocks()
+            confirmVerified(service)
+            unmockkAll()
         }
     }
 })

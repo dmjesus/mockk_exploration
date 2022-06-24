@@ -12,7 +12,7 @@ import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.impl.annotations.SpyK
 import io.mockk.junit5.MockKExtension
 import io.mockk.justRun
-import io.mockk.verify
+import io.mockk.verifyAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
@@ -43,12 +43,12 @@ class JUnit5MockingTest {
             assertEquals(OK, it)
         }
 
-        verify {
-            carService3.unitFunctionExample()
-            carService3.changeGear(FIRST)
+        verifyAll {
+            carService1.unitFunctionExample()
+            carService1.changeGear(FIRST)
         }
 
-        confirmVerified(carService3)
+        confirmVerified(carService1)
     }
 
     @Test
@@ -61,7 +61,7 @@ class JUnit5MockingTest {
             assertNotNull(it)
         }
 
-        verify {
+        verifyAll {
             carService2.unitFunctionExample()
             carService2.changeGear(FIRST)
         }
@@ -79,7 +79,7 @@ class JUnit5MockingTest {
             assertEquals(it, OK)
         }
 
-        verify {
+        verifyAll {
             carService3.unitFunctionExample()
             carService3.changeGear(FIRST)
         }
@@ -97,7 +97,7 @@ class JUnit5MockingTest {
             assertEquals(SECOND, car.gear)
         }
 
-        verify {
+        verifyAll {
             carService4.car
             carService4.unitFunctionExample()
             carService4.changeGear(SECOND)

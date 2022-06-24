@@ -7,10 +7,7 @@ import com.learning.mockk.domain.entities.Outcome.OK
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import io.mockk.every
-import io.mockk.mockkObject
-import io.mockk.unmockkObject
-import io.mockk.verify
+import io.mockk.*
 
 class ObjectMockTest: FunSpec({
     context("Static Mocking") {
@@ -23,11 +20,12 @@ class ObjectMockTest: FunSpec({
             Chevette.drive(NORTH) shouldBe OK
             Chevette.changeGear(SECOND) shouldBe OK
 
-            verify {
+            verifyAll {
                 Chevette.drive(NORTH)
                 Chevette.changeGear(SECOND)
             }
-
+            
+            confirmVerified(Chevette)
             unmockkObject(Chevette)
 
             shouldThrow<RuntimeException> {

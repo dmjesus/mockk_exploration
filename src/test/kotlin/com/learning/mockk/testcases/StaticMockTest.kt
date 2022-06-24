@@ -9,7 +9,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockkStatic
 import io.mockk.unmockkStatic
-import io.mockk.verify
+import io.mockk.verifyAll
 
 class StaticMockTest: FunSpec({
     context("Static Mocking") {
@@ -20,7 +20,7 @@ class StaticMockTest: FunSpec({
 
             Chevette.fly(NORTH) shouldBe OK
 
-            verify {
+            verifyAll {
                 Chevette.fly(NORTH)
             }
 

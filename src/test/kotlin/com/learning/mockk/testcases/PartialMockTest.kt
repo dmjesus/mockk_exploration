@@ -7,10 +7,7 @@ import com.learning.mockk.domain.entities.Outcome.OK
 import com.learning.mockk.domain.services.CarService
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import io.mockk.clearAllMocks
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
+import io.mockk.*
 
 class PartialMockTest : FunSpec({
     context("Driving tests") {
@@ -27,11 +24,13 @@ class PartialMockTest : FunSpec({
                 service.car.gear shouldBe SECOND
             }
 
-            verify {
+            verifyAll {
+                service.car
                 service.drive(NORTH)
                 service.changeGear(SECOND)
             }
-            clearAllMocks()
+            confirmVerified(service)
+            unmockkAll()
         }
     }
 })

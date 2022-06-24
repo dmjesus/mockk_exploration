@@ -7,10 +7,10 @@ import com.learning.mockk.domain.services.CarService
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
+import io.mockk.unmockkAll
+import io.mockk.verifyAll
 
 class RelaxedMockTest: FunSpec({
     context("Relaxed mocking") {
@@ -23,12 +23,12 @@ class RelaxedMockTest: FunSpec({
             service.drive(NORTH) shouldBe OK
             service.drive(SOUTH) shouldNotBe OK
 
-            verify {
+            verifyAll {
                 service.drive(NORTH)
                 service.drive(SOUTH) //no answer found for: CarService(#1).drive(SOUTH)
             }
 
-            clearAllMocks()
+            unmockkAll()
         }
     }
 })
