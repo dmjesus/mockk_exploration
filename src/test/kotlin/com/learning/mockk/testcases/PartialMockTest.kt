@@ -30,7 +30,6 @@ class PartialMockTest : FunSpec({
                 service.changeGear(SECOND)
             }
             confirmVerified(service)
-            unmockkAll()
         }
     }
 })

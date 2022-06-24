@@ -26,7 +26,6 @@ class RelaxedMockTest: FunSpec({
             }
 
             confirmVerified(service)
-            unmockkAll()
         }
     }
 })

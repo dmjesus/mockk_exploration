@@ -24,8 +24,9 @@ class ObjectMockTest: FunSpec({
                 Chevette.drive(NORTH)
                 Chevette.changeGear(SECOND)
             }
-            
+
             confirmVerified(Chevette)
+
             unmockkObject(Chevette)
 
             shouldThrow<RuntimeException> {

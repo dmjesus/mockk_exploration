@@ -20,7 +20,6 @@ internal class CarServiceTest: FunSpec({
 
             verify { service.drive(NORTH) }
             confirmVerified(service)
-            unmockkAll()
         }
 
         test("Should change gear") {
@@ -32,7 +31,6 @@ internal class CarServiceTest: FunSpec({
 
             verify { service.changeGear(FIRST) }
             confirmVerified(service)
-            unmockkAll()
         }
     }
 })

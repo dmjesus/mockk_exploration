@@ -21,7 +21,6 @@ class VarArgMockingTest : FunSpec({
             verify(exactly = 1) { obj.argsFunction(1, 2, 3, 7, 7, 7) }
 
             confirmVerified(obj)
-            unmockkAll()
         }
 
         test("Should mock function with var arg argument receiving any integer") {
@@ -38,7 +37,6 @@ class VarArgMockingTest : FunSpec({
             verify(exactly = 1) { obj.argsFunction(1, 2, 3, 7) }
 
             confirmVerified(obj)
-            unmockkAll()
         }
     }
 })
